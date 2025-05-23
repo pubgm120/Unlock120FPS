@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Unlock 120 FPS</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #007BFF;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: white;
+    }
+
+    .toggle-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .toggle-label {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+
+    .toggle-switch {
+      position: relative;
+      width: 60px;
+      height: 30px;
+      margin-bottom: 10px;
+    }
+
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      top: 0; left: 0;
+      right: 0; bottom: 0;
+      background-color: #ccc;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.4s;
+    }
+
+    .slider:before {
+      content: "";
+      position: absolute;
+      height: 24px;
+      width: 24px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      border-radius: 50%;
+      transition: 0.4s;
+    }
+
+    input:checked + .slider {
+      background-color: #00e676;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(30px);
+    }
+
+    .status-text {
+      font-size: 1em;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="toggle-container">
+    <div class="toggle-label">Unlock 120 FPS</div>
+    <label class="toggle-switch">
+      <input type="checkbox" id="fpsToggle">
+      <span class="slider"></span>
+    </label>
+    <div class="status-text" id="status">Status: Locked</div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById("fpsToggle");
+    const status = document.getElementById("status");
+
+    toggle.addEventListener("change", function() {
+      status.textContent = this.checked ? "Status: Unlocked" : "Status: Locked";
+    });
+  </script>
+</body>
+</html>
